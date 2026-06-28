@@ -8,6 +8,7 @@ export default defineConfig({
 		starlight({
 			title: 'My Wiki',
 			description: 'A personal wiki built with Astro Starlight.',
+			customCss: ['./src/styles/custom.css'],
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/Riyoway/personal-wiki' },
 			],

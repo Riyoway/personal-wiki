@@ -1,0 +1,154 @@
+/* Monochrome theme for Starlight
+   Overrides the default accent + gray palette with neutral grays and
+   restyles native UI (scrollbars, selection, form controls, selects). */
+
+/* ---- Dark mode (default) ---- */
+:root {
+	--sl-color-white: hsl(0 0% 100%);
+	--sl-color-gray-1: hsl(0 0% 90%);
+	--sl-color-gray-2: hsl(0 0% 70%);
+	--sl-color-gray-3: hsl(0 0% 50%);
+	--sl-color-gray-4: hsl(0 0% 34%);
+	--sl-color-gray-5: hsl(0 0% 21%);
+	--sl-color-gray-6: hsl(0 0% 13%);
+	--sl-color-black: hsl(0 0% 8%);
+
+	/* Accent is neutral: links/active items read as light gray, not blue. */
+	--sl-color-accent-low: hsl(0 0% 22%);
+	--sl-color-accent: hsl(0 0% 78%);
+	--sl-color-accent-high: hsl(0 0% 96%);
+
+	color-scheme: dark;
+	accent-color: var(--sl-color-gray-2);
+
+	/* Neutralize every accent hue (cards, asides, badges) to grayscale,
+	   keeping the original lightness so contrast stays intact. */
+	--sl-color-orange-low: hsl(0 0% 22%);
+	--sl-color-orange: hsl(0 0% 62%);
+	--sl-color-orange-high: hsl(0 0% 87%);
+	--sl-color-green-low: hsl(0 0% 22%);
+	--sl-color-green: hsl(0 0% 62%);
+	--sl-color-green-high: hsl(0 0% 87%);
+	--sl-color-blue-low: hsl(0 0% 22%);
+	--sl-color-blue: hsl(0 0% 62%);
+	--sl-color-blue-high: hsl(0 0% 87%);
+	--sl-color-purple-low: hsl(0 0% 22%);
+	--sl-color-purple: hsl(0 0% 62%);
+	--sl-color-purple-high: hsl(0 0% 87%);
+	--sl-color-red-low: hsl(0 0% 22%);
+	--sl-color-red: hsl(0 0% 62%);
+	--sl-color-red-high: hsl(0 0% 87%);
+}
+
+/* ---- Light mode ---- */
+:root[data-theme='light'] {
+	--sl-color-white: hsl(0 0% 10%);
+	--sl-color-gray-1: hsl(0 0% 16%);
+	--sl-color-gray-2: hsl(0 0% 23%);
+	--sl-color-gray-3: hsl(0 0% 40%);
+	--sl-color-gray-4: hsl(0 0% 60%);
+	--sl-color-gray-5: hsl(0 0% 82%);
+	--sl-color-gray-6: hsl(0 0% 94%);
+	--sl-color-gray-7: hsl(0 0% 97%);
+	--sl-color-black: hsl(0 0% 100%);
+
+	--sl-color-accent-low: hsl(0 0% 88%);
+	--sl-color-accent: hsl(0 0% 25%);
+	--sl-color-accent-high: hsl(0 0% 10%);
+
+	color-scheme: light;
+	accent-color: var(--sl-color-gray-3);
+
+	/* Grayscale accents for light mode (high = dark text, low = light fill). */
+	--sl-color-orange-high: hsl(0 0% 28%);
+	--sl-color-orange: hsl(0 0% 50%);
+	--sl-color-orange-low: hsl(0 0% 90%);
+	--sl-color-green-high: hsl(0 0% 28%);
+	--sl-color-green: hsl(0 0% 50%);
+	--sl-color-green-low: hsl(0 0% 90%);
+	--sl-color-blue-high: hsl(0 0% 28%);
+	--sl-color-blue: hsl(0 0% 50%);
+	--sl-color-blue-low: hsl(0 0% 90%);
+	--sl-color-purple-high: hsl(0 0% 28%);
+	--sl-color-purple: hsl(0 0% 50%);
+	--sl-color-purple-low: hsl(0 0% 90%);
+	--sl-color-red-high: hsl(0 0% 28%);
+	--sl-color-red: hsl(0 0% 50%);
+	--sl-color-red-low: hsl(0 0% 90%);
+}
+
+/* ---- Modern type rendering ---- */
+html {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+body {
+	letter-spacing: -0.01em;
+}
+
+/* ---- Text selection ---- */
+::selection {
+	background: var(--sl-color-gray-2);
+	color: var(--sl-color-black);
+}
+
+/* ---- Scrollbars (Firefox) ---- */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--sl-color-gray-4) transparent;
+}
+
+/* ---- Scrollbars (WebKit / Chromium) ---- */
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background: var(--sl-color-gray-5);
+	border-radius: 999px;
+	border: 2px solid transparent;
+	background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: var(--sl-color-gray-4);
+	background-clip: padding-box;
+}
+::-webkit-scrollbar-corner {
+	background: transparent;
+}
+
+/* ---- Native form controls / selects ---- */
+select,
+input,
+button {
+	accent-color: var(--sl-color-gray-2);
+}
+
+/* Starlight's theme + language selects: flat monochrome look */
+.sl-select-wrapper select {
+	border-radius: 0.5rem;
+}
+
+/* ---- Subtle modern refinements ---- */
+:root {
+	--sl-shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.25);
+	--sl-shadow-md: 0 2px 8px hsl(0 0% 0% / 0.3);
+	--sl-shadow-lg: 0 8px 24px hsl(0 0% 0% / 0.35);
+}
+
+/* Slightly rounder, flatter cards and code blocks */
+.card,
+.expressive-code .frame,
+:not(pre) > code {
+	border-radius: 0.6rem;
+}
+
+/* Thinner, neutral borders */
+:root {
+	--sl-color-hairline: var(--sl-color-gray-6);
+	--sl-color-hairline-shade: var(--sl-color-gray-6);
+}
