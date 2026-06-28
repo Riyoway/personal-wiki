@@ -1,0 +1,25 @@
+---
+title: My Wiki
+description: A personal wiki built with Astro Starlight.
+template: splash
+hero:
+  tagline: Notes, how-tos, and references.
+  actions:
+    - text: About
+      link: /about/
+      icon: right-arrow
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid>
+	<Card title="Notes" icon="pencil">
+		Short notes. → [Notes](/notes/git/)
+	</Card>
+	<Card title="How-to" icon="list-format">
+		Reusable steps. → [How-to](/how-to/new-machine/)
+	</Card>
+	<Card title="Reference" icon="open-book">
+		Lookups and snippets. → [Reference](/reference/snippets/)
+	</Card>
+</CardGrid>
